@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM-MANAGER</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+
+    <header>
+        
+        <nav>
+            <ul class="add-and-show-list">
+                <li><a href="">Exercises</a></li>
+                <li><a href="">Your exercises</a></li>
+                <li><a href="">add an exercise</a></li>
+            </ul>
+        </nav>
+
+        <div class= "exercise-finder">
+            <input 
+                type="text" 
+                id="find-exercise" 
+                name="find-exercise" 
+                class="find-exercise"
+                placeholder="Find exercise you need"
+            >
+            
+            <button class="clear-search-bar" id ="clear-search-bar">Clear</button>
+        </div>
+    </header>
+
+    <section class="exercises">
+        
+        <div class="gym-manager">
+            <div class="manageexercises">Manage Exercises</div>
+            <div class="sorting">
+                <label for="sort-select">Sort By</label>
+                <select name="sort-select" id="sort-select" onchange="showExerciseListSorted()">
+                    <option value="none">none</option>
+                    <option value="model">type</option>
+                    <option value="weightInKilos">weight-in-kilos</option>
+                    <option value="price">price</option>
+                </select>
+            </div>
+            <hr size=3px width=500px>
+            
+            <div class="total-price-calculate">
+                <button id="total-price-calculate__button" onclick="countPriceOfProgram()">Count</button>
+                <div id="total-price">Whole price: </div>
+            </div>
+
+        </div>
+        <ul id="exercises-list" class="exercises-list"></ul>
+        <div class="vl"></div>
+    </section>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
