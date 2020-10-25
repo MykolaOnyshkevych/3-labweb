@@ -1,0 +1,14 @@
+header{
+    background-color: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    text-align: center;
+    height: 6rem;
+    align-items: center;
+  }
+header a{
+    font-size: 50px;
+    color: #7f7f7f;
+    margin-left: 5rem;
+    text-decoration: none;
+}

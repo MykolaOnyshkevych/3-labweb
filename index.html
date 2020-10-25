@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GYM-MANAGER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+
+  <!--link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+  integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+  crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+  integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+  crossorigin="anonymous"></script-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<header>
+  <div class="header-container">
+      <a href="#" class="navbar-brand justify-content-between align-items-center">
+        <strong>Exercises</strong>
+      </a>
+    </div>
+</header>
+
+<body>
+
+  <section class="main-class">
+    <div class="container">
+
+
+      <!--   SEARCH   -->
+
+      <div>
+        <form class="form-inline" action="javascript:void(0);" method="POST" id="search-by-model" 
+        onsubmit="app.SearchByModel()" style="max-width: 50%; margin: auto;margin-top: 5rem; margin-left: -18rem;">
+          <input id="search-model" class="form-control-search" type="text" placeholder="Search by model...">
+          <div style="display: flex; justify-content: flex-end;">
+            <input class="search-button" type="submit" id="search-button" value="Search">
+            <button class="cancel-button" onclick="app.StopSearch()" style="margin-right: 5px;">Cancel</button>
+            <input class="sort-button" type="button" id="bubble-sort" onclick="app.BubbleSortByPrice()" value="Sort by price" />
+          </div>
+        </form>
+            <div>
+              <button class="add-new-button" onclick="app.DisplayAddForm()">Add new</button>
+            </div>
+      </div>
+      </p>
+      <hr/>
+
+    
+
+  <!--   ADD   -->
+
+  <div id="add-form">
+    <h1>Add new exercise</h1><br>
+    <form action="javascript:void(0);" method="POST" onsubmit="app.Add()">
+      <div class="row">
+        <div class="price-column">
+          <label for="price">PRICE</label>
+          <input class="form-control" type="number" id="add-price" placeholder="Enter price" required min="1" max="500" step="1.5" value="40">
+        </div>
+        <div class="model-column">
+          <label for="model">MODEL OF EX</label>
+          <input class="form-control" type="text" id="add-model" placeholder="Enter model" required minlength="3" maxlength="30">
+        </div>
+      </div>
+      <div class="row">
+        <div class="type-column">
+          <label for="extype">EXERCISE TYPE</label>
+          <select class="form-control" id="add-extype" placeholder="Choose exercise type..." required>
+            <option value="" disabled selected>Select exercise type</option>
+            <option value="RUNNING">RUNNING</option>
+            <option value="STEPPLATFORM">STEPPLATFORM</option>
+            <option value="GRIEF">GRIEF</option>
+            <option value="RACETRACK">RACETRACK</option>
+          </select>
+        </div>
+        <div class="weight-column">
+      
+          <label for="weight">LOSE WEIGHT IN KG</label>
+          <input class="form-control-we" type="number" id="add-weight" placeholder="Enter weight" required min="20" max="60" step="2"><br>
+        </div>
+      </div>
+      
+      <div style="margin-top: 2rem;">
+        <input id="submit-button" type="submit" class="btn btn-dark" value="Submit" />
+        <input type="reset" class="reset-button" value="Reset" />
+      </div>
+
+      <div id="add-modal" class="modal">
+
+        
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>ERROR!</p>
+        </div>
+      
+      </div>
+
+    </form>
+  </div>
+  
+  <!--   EDIT   -->
+
+  <div id="edit-spoiler" role="aria-hidden">
+    <h1>Edit my exercise</h1><br>
+    <form action="javascript:void(0);" method="POST" id="saveEdit">
+      <div class="row">
+        <div class="price-edit">
+          <label for="price">PRICE</label>
+          <input class="form-control" type="number" id="edit-price" placeholder="Enter price" required min="1" max="500" step="1.5" value="40">
+        </div>
+        <div class="model-edit">
+          <label for="model">model</label>
+          <input class="form-control" type="text" id="edit-model" placeholder="Enter model" required minlength="3" maxlength="30">
+        </div>
+      </div>
+      <div class="row">
+        <div class="type-edit">
+          <label for="extype">EXERCISE TYPE</label>
+          <select class="form-control" id="edit-extype" placeholder="Choose exercise type..." required>
+            <option value="RUNNING">RUNNING</option>
+            <option value="STEPPLATFORM">STEPPLATFORM</option>
+            <option value="GRIEF">GRIEF</option>
+            <option value="RACETRACK">RACETRACK</option>
+          </select>
+        </div>
+
+        <div class="weight-edit">
+          <label for="height">WEIGHT (kg)</label>
+          <input class="form-control-we-edit" type="number" id="edit-weight" placeholder="Enter weight" required min="20" max="60" step="2"><br>
+        </div>
+      </div>
+      
+      <div style="margin-top: 2rem;">
+        <input id="edit-exercise-button" type="submit" class="btn btn-dark" value="Edit" />
+        <button class="cancel-edit-button" onclick="app.CloseInput()">Cancel</button>
+      </div>
+
+      <div id="edit-modal" class="modal">
+
+        <!--   Modal content   -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>ERROR</p>
+        </div>
+      
+      </div>
+
+    </form>
+  </div>
+
+  <!--   COUNTERS   -->
+
+  <div class="jumbotron" style="padding-bottom: 5px;   margin: auto;">
+
+  
+
+    <p id="counter">
+    </p>
+
+ 
+
+    <p id="total-price-counter">
+    </p>
+
+
+
+  </div>
+
+  <div id="clear-spoiler" role="aria-hidden">
+    <button class="clear-items-button" onclick="app.Clear()">Clear</button>
+  </div>
+
+
+  <!--   DISPLAY   -->
+
+  <div class="card-class" style="width: 85%; margin: auto; margin-top: 30px; border: 1px #c2c2c2; border-radius: 5px;">
+    <div class="container">
+
+      <div id="exercises" class="row">
+        
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
