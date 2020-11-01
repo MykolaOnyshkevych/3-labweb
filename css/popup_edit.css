@@ -1,0 +1,38 @@
+.edit__title{
+	margin: 0 auto 1.5vw auto;
+	font-size: 2em;
+}
+.edit__item{
+	margin: 0 0 1.1vw 0;
+}
+.edit__item__checkbox{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.edit__input__title{
+	font-size: 1.4em;
+}
+.edit__input__title__checkbox{
+	font-size: 1.4em;
+}
+.input{
+	width: 100%;
+	border: 1px solid #A9A9A9;
+}
+.input__checkbox{
+	width: 13px;
+	margin: 0 auto 0 30px;
+}
+
+.submit__edit__exercise__btn{
+    height:32px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 2px;
+    border: none;
+    margin: 17px 0 0 0;
+    background: #292221;
+    color: #eaebf1;
+}

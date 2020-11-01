@@ -1,0 +1,112 @@
+<div class="wrapper">
+        <div class="left__block">
+            <div class="left__block__content">
+                <div class="left__block__content__sort">
+                    <h2 class="left__block__title manage_exercise">Manage Exercises</h2>
+                    <div class="sort">
+                        <label for="sort__select">Sort By</label>
+                        <select id="sort__select" onchange="showExerciseListSorted()">
+                            <option value="none">none</option>
+                            <option value="model">model</option>
+                            <option value="weightInKilos">weight in kilos</option>
+                            <option value="price">price</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="left__block__content__count">
+                    <h3 class="left__block__title">Count total price:</h3>
+                    <div class="count__div">
+                        <button class="count__btn" onclick="countTotalPrice()">Count</button>
+                    </div>
+                    <h4 id="total__price" class="left__block__title">Total price:</h4>
+                </div>
+            </div>
+            <div class="vl"><span></span></div>
+        </div>
+        <div class="right__block">
+            <ul id="exercise__list" class="exercise__list">
+                
+
+            </ul>
+        </div>
+    </div>            
+    
+
+
+    <div id="popup__add" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#header" class="popup__close close__popup">☒</a>
+                <h2 class="add__title">Add exercise</h2>
+                <div class="add__container">
+                    <div class="add__item">
+                        <h1 class="add__input__title">Model</h1>
+                        <input 
+                            id="add__input__model"
+                            class="input" 
+                            type="text" 
+                            placeholder="Enter name">
+                    </div>
+                    <div class="add__item">
+                        <h1 class="add__input__weight">Weight in kilos</h1>
+                        <input 
+                            id="add__input__weight"
+                            class="input" 
+                            type="number" 
+                            placeholder="Enter area">
+                    </div>
+                    <div class="add__item">
+                        <h1 class="add__input__title">Price</h1>
+                        <input 
+                            id="add__input__price"
+                            class="input" 
+                            type="number" 
+                            placeholder="Enter price">
+                    </div>
+                <input id="submit__add__exercise__btn" class="submit__add__exercise__btn" type="button" value="Submit"/>
+            </div>
+        </div>    
+    </div>
+    </div>
+
+
+    <div id="popup__edit" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="#header" class="popup__close close__popup">X</a>
+                <h2 class="edit__title">Edit exercise</h2>
+                <div class="edit__container">
+                    <div class="edit__item">
+                        <h1 class="edit__input__title">Model</h1>
+                        <input 
+                            id="edit__input__name"
+                            class="input" 
+                            type="text" 
+                            placeholder="Enter model">
+                    </div>
+                    <div class="edit__item">
+                        <h1 class="edit__input__title">Weight in kilos</h1>
+                        <input 
+                            id="edit__input__weight"
+                            class="input" 
+                            type="number" 
+                            placeholder="Enter weight">
+                    </div>
+                    <div class="edit__item">
+                        <h1 class="edit__input__title">Price</h1>
+                        <input 
+                            id="edit__input__price"
+                            class="input" 
+                            type="number" 
+                            placeholder="Enter price">
+                    </div>
+                       
+                </div>
+                <input id="submit__edit__exercise__btn" class="submit__edit__exercise__btn" type="button" value="Submit"/>
+            </div>
+        </div>    
+    </div>
+
+    <script>let exercisesString = '{{ exercisesString }}'; </script>
+    <script src="../js/main.js"></script>
